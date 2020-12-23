@@ -1,0 +1,19 @@
+name: themoviedb_api
+description: A new Flutter package project.
+version: 0.0.1
+author:
+homepage:
+publish_to: "none"
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+
+dependencies:
+  dio: ^3.0.10
+
+
+dev_dependencies:
+ 
+
+
