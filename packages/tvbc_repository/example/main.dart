@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:tvbc_repository/src/tvbc_repository.dart';
+import 'package:tvbc_repository/src/repository/tvbc_repository.dart';
+
 
 void main() async {
   final tvbcRepository = TvbcRepository();

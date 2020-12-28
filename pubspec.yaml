@@ -17,6 +17,8 @@ dependencies:
     path: packages/tvbc_repository
   equatable: ^1.2.5
   flutter_bloc: ^6.1.0
+  google_fonts: ^1.1.0
+  shimmer: ^1.1.1
 
 
   # The following adds the Cupertino Icons font to your application.

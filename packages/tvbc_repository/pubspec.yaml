@@ -10,8 +10,8 @@ environment:
   
 
 dependencies:
-  themoviedb_api:
-    path: ../themoviedb_api
+
+  dio: ^3.0.10
 
 
 

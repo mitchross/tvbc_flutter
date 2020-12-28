@@ -1,4 +1,6 @@
-import 'package:themoviedb_api/themoviedb_api.dart';
+
+import 'package:tvbc_repository/src/themoviedb_api/models/models.dart';
+import 'package:tvbc_repository/src/themoviedb_api/tmdb_apt_client.dart';
 
 
 
