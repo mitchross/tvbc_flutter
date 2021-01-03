@@ -13,19 +13,16 @@ class HomePage extends StatelessWidget {
       body:SafeArea(
       child: Padding
       ( padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Flexible(
-              child: BlocProvider(
+        child: 
+           
+           BlocProvider(
                 create: (context) => SearchCubit(
                   context.read<TvbcRepository>(),
                 ),
                 child: HomeView(),
               ),
-             ),
-          ]),
+             
+          
         ),
         ),
     );

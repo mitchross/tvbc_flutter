@@ -15,22 +15,25 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      key: const Key('searchBar_textField'),
-      style: GoogleFonts.roboto(),
-      decoration: InputDecoration(
-        filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(180),
-          borderSide: BorderSide.none,
+    return SizedBox(
+      height: 50,
+      child: TextField(
+        key: const Key('searchBar_textField'),
+        style: GoogleFonts.roboto(),
+        decoration: InputDecoration(
+          filled: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(180),
+            borderSide: BorderSide.none,
+          ),
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: trailing,
+          hintText: 'search here',
+          hintStyle: GoogleFonts.roboto(),
         ),
-        prefixIcon: const Icon(Icons.search),
-        suffixIcon: trailing,
-        hintText: 'search here',
-        hintStyle: GoogleFonts.roboto(),
+        onChanged: onChanged,
+        onSubmitted: onSubmitted,
       ),
-      onChanged: onChanged,
-      onSubmitted: onSubmitted,
     );
   }
 }

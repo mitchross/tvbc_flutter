@@ -16,14 +16,14 @@ class HomeView extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(15),
           child: SearchBar(
             onSubmitted: (value) {
               context.read<SearchCubit>().getTVSearchResults(searchTerm: value);
             },
           ),
         ),
-        Expanded(
+        Flexible(
             child: BlocBuilder<SearchCubit, SearchState>(
           buildWhen: (previous, current) => previous.status != current.status,
           builder: (context, state) {
@@ -49,18 +49,23 @@ class _SearchSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        key: const Key('search_result_column'),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-          ),
-          itemCount: searchResults.length,
-          itemBuilder: (context, index) {
-            final searchResult = searchResults[index];
-            return SearchResultCard(searchResult: searchResult);
-          },
-        ));
+    return 
+      GridView.builder(
+
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: .5,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          crossAxisCount: 3,
+        ),
+        
+        itemCount: searchResults.length,
+        itemBuilder: (context, index) {
+          final searchResult = searchResults[index];
+          return SearchResultCard(searchResult: searchResult);
+        },
+      
+    );
   }
 }
 
