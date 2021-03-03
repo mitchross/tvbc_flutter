@@ -26,7 +26,7 @@ class TelevisionBingeCalc extends StatelessWidget {
             elevation: 0,
             iconTheme: IconThemeData(color: Colors.black87),
           ),
-          textTheme: GoogleFonts.abrilFatfaceTextTheme(),
+          textTheme: GoogleFonts.robotoTextTheme(),
         ),
         home: HomePage(),
       ),

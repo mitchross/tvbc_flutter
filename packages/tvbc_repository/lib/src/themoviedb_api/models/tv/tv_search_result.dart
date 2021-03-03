@@ -71,7 +71,7 @@ class TVResult {
 
     factory TVResult.fromJson(Map<String, dynamic> json) => TVResult(
         backdropPath: json["backdrop_path"] == null ? null : json["backdrop_path"],
-        firstAirDate: DateTime.parse(json["first_air_date"]),
+        firstAirDate: DateTime.tryParse(json["first_air_date"]),
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         name: json["name"],

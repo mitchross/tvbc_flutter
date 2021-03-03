@@ -22,8 +22,17 @@ class HomeView extends StatelessWidget {
               context.read<SearchCubit>().getTVSearchResults(searchTerm: value);
             },
           ),
+          
         ),
+        Row(children: [
+          TextButton(onPressed: null, child: Text("TV")),
+          TextButton(onPressed: null, child: Text("Movies"))
+        ],),
         Flexible(
+         
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            
             child: BlocBuilder<SearchCubit, SearchState>(
           buildWhen: (previous, current) => previous.status != current.status,
           builder: (context, state) {
@@ -36,7 +45,9 @@ class HomeView extends StatelessWidget {
                 return const _SearchFailure();
             }
           },
-        ))
+        )
+        )
+        )
       ],
     );
   }
@@ -49,22 +60,24 @@ class _SearchSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-      GridView.builder(
+    var size = MediaQuery.of(context).size;
+    final double itemHeight = (size.height) ;
+    final double itemWidth = (size.width);
 
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: .5,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          crossAxisCount: 3,
-        ),
-        
-        itemCount: searchResults.length,
-        itemBuilder: (context, index) {
-          final searchResult = searchResults[index];
-          return SearchResultCard(searchResult: searchResult);
-        },
-      
+
+
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: itemWidth/itemHeight,
+        mainAxisSpacing: 2,
+        crossAxisSpacing: 12,
+        crossAxisCount: 3,
+      ),
+      itemCount: searchResults.length,
+      itemBuilder: (context, index) {
+        final searchResult = searchResults[index];
+        return SearchResultCard(searchResult: searchResult);
+      },
     );
   }
 }

@@ -1,5 +1,7 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 import 'package:tvbc_flutter/home/models/search_result.dart';
 
 class SearchResultCard extends StatelessWidget {
@@ -10,32 +12,40 @@ class SearchResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ColoredBox(color: Colors.red,child: 
-    Column(
-      
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+    final String imageUrl = imageBaseUrl + ( searchResult.imageLink !=null ?searchResult.imageLink : "");
+
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          width: 110,
-          height: 169,
-          decoration: BoxDecoration(
-            
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(imageBaseUrl + searchResult.imageLink))),
-        ),
-                  Padding(
-            padding: EdgeInsets.all(5),
-            child: Text(searchResult.title),
+        Flexible(
+          flex: 1,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4.0),
+            child:  FadeInImage.assetNetwork(
+              image: imageUrl,
+              placeholder: 'assets/images/circular_progress_indicator.gif',
+             
+            ),
           ),
-          Padding(
-            padding: EdgeInsets.all(5),
-            child: Text("Score: " + searchResult.score.toString()),
-          )
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(16, 12, 16, 8),
+          child: Column(
+            children: <Widget>[
+             Text(
+                searchResult.title,
+              ),
+             
+              SizedBox(
+                height: 8,
+              ),
+              Text("Score: " + searchResult.score.toString())
+            ],
+          ),
+        ),
       ],
-      
-    )
     );
   }
 }
