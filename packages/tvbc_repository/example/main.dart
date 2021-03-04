@@ -1,3 +1,5 @@
+
+
 import 'dart:io';
 
 import 'package:tvbc_repository/src/repository/tvbc_repository.dart';
@@ -8,7 +10,7 @@ void main() async {
 
   try {
     final searchResults = await tvbcRepository.searchTVShows("lost");
-    for (final show in searchResults.results) {
+    for (final show in searchResults.results!) {
       print(show.name);
     }
   } on Exception catch (e) {

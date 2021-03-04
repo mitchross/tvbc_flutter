@@ -18,10 +18,10 @@ class MovieSearchResults {
         this.totalResults,
     });
 
-    int page;
-    List<MovieResult> results;
-    int totalPages;
-    int totalResults;
+    int? page;
+    List<MovieResult>? results;
+    int? totalPages;
+    int? totalResults;
 
     factory MovieSearchResults.fromJson(Map<String, dynamic> json) => MovieSearchResults(
         page: json["page"],
@@ -32,7 +32,7 @@ class MovieSearchResults {
 
     Map<String, dynamic> toJson() => {
         "page": page,
-        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "results": List<dynamic>.from(results!.map((x) => x.toJson())),
         "total_pages": totalPages,
         "total_results": totalResults,
     };
@@ -56,20 +56,20 @@ class MovieResult {
         this.voteCount,
     });
 
-    bool adult;
-    String backdropPath;
-    List<int> genreIds;
-    int id;
-    OriginalLanguage originalLanguage;
-    String originalTitle;
-    String overview;
-    double popularity;
-    String posterPath;
-    DateTime releaseDate;
-    String title;
-    bool video;
-    double voteAverage;
-    int voteCount;
+    bool? adult;
+    String? backdropPath;
+    List<int>? genreIds;
+    int? id;
+    OriginalLanguage? originalLanguage;
+    String? originalTitle;
+    String? overview;
+    double? popularity;
+    String? posterPath;
+    DateTime? releaseDate;
+    String? title;
+    bool? video;
+    double? voteAverage;
+    int? voteCount;
 
     factory MovieResult.fromJson(Map<String, dynamic> json) => MovieResult(
         adult: json["adult"],
@@ -91,14 +91,14 @@ class MovieResult {
     Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath == null ? null : backdropPath,
-        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
+        "genre_ids": List<dynamic>.from(genreIds!.map((x) => x)),
         "id": id,
-        "original_language": originalLanguageValues.reverse[originalLanguage],
+        "original_language": originalLanguageValues.reverse![originalLanguage!],
         "original_title": originalTitle,
         "overview": overview,
         "popularity": popularity,
         "poster_path": posterPath,
-        "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+        "release_date": "${releaseDate!.year.toString().padLeft(4, '0')}-${releaseDate!.month.toString().padLeft(2, '0')}-${releaseDate!.day.toString().padLeft(2, '0')}",
         "title": title,
         "video": video,
         "vote_average": voteAverage,

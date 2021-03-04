@@ -5,15 +5,15 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:tvbc_flutter/home/models/search_result.dart';
 
 class SearchResultCard extends StatelessWidget {
-  final SearchResult searchResult;
+  final SearchResult? searchResult;
   final String imageBaseUrl = "https://image.tmdb.org/t/p/w500/";
 
-  const SearchResultCard({Key key, this.searchResult}) : super(key: key);
+  const SearchResultCard({Key? key, this.searchResult}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
-    final String imageUrl = imageBaseUrl + ( searchResult.imageLink !=null ?searchResult.imageLink : "");
+    final String imageUrl = imageBaseUrl + ( searchResult!.imageLink !=null ?searchResult!.imageLink! : "");
 
 
     return Column(
@@ -35,13 +35,13 @@ class SearchResultCard extends StatelessWidget {
           child: Column(
             children: <Widget>[
              Text(
-                searchResult.title,
+                searchResult!.title!,
               ),
              
               SizedBox(
                 height: 8,
               ),
-              Text("Score: " + searchResult.score.toString())
+              Text("Score: " + searchResult!.score.toString())
             ],
           ),
         ),

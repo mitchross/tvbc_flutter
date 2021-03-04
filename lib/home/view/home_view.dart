@@ -54,9 +54,9 @@ class HomeView extends StatelessWidget {
 }
 
 class _SearchSuccess extends StatelessWidget {
-  const _SearchSuccess({Key key, this.searchResults}) : super(key: key);
+  const _SearchSuccess({Key? key, this.searchResults}) : super(key: key);
 
-  final List<SearchResult> searchResults;
+  final List<SearchResult>? searchResults;
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +73,9 @@ class _SearchSuccess extends StatelessWidget {
         crossAxisSpacing: 12,
         crossAxisCount: 3,
       ),
-      itemCount: searchResults.length,
+      itemCount: searchResults!.length,
       itemBuilder: (context, index) {
-        final searchResult = searchResults[index];
+        final searchResult = searchResults![index];
         return SearchResultCard(searchResult: searchResult);
       },
     );
@@ -83,14 +83,14 @@ class _SearchSuccess extends StatelessWidget {
 }
 
 class _SearchLoading extends StatelessWidget {
-  const _SearchLoading({Key key}) : super(key: key);
+  const _SearchLoading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       key: const Key('synonyms_loading_shimmer'),
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       enabled: true,
       child: Column(
         children: [
@@ -104,7 +104,7 @@ class _SearchLoading extends StatelessWidget {
 }
 
 class _SearchFailure extends StatelessWidget {
-  const _SearchFailure({Key key}) : super(key: key);
+  const _SearchFailure({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

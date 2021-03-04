@@ -18,10 +18,10 @@ class TvSearchResults {
         this.totalResults,
     });
 
-    int page;
-    List<TVResult> results;
-    int totalPages;
-    int totalResults;
+    int? page;
+    List<TVResult>? results;
+    int? totalPages;
+    int? totalResults;
 
     factory TvSearchResults.fromJson(Map<String, dynamic> json) => TvSearchResults(
         page: json["page"],
@@ -32,7 +32,7 @@ class TvSearchResults {
 
     Map<String, dynamic> toJson() => {
         "page": page,
-        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "results": List<dynamic>.from(results!.map((x) => x.toJson())),
         "total_pages": totalPages,
         "total_results": totalResults,
     };
@@ -55,19 +55,19 @@ class TVResult {
         this.voteCount,
     });
 
-    String backdropPath;
-    DateTime firstAirDate;
-    List<int> genreIds;
-    int id;
-    String name;
-    List<String> originCountry;
-    OriginalLanguage originalLanguage;
-    String originalName;
-    String overview;
-    double popularity;
-    String posterPath;
-    double voteAverage;
-    int voteCount;
+    String? backdropPath;
+    DateTime? firstAirDate;
+    List<int>? genreIds;
+    int? id;
+    String? name;
+    List<String>? originCountry;
+    OriginalLanguage? originalLanguage;
+    String? originalName;
+    String? overview;
+    double? popularity;
+    String? posterPath;
+    double? voteAverage;
+    int? voteCount;
 
     factory TVResult.fromJson(Map<String, dynamic> json) => TVResult(
         backdropPath: json["backdrop_path"] == null ? null : json["backdrop_path"],
@@ -87,12 +87,12 @@ class TVResult {
 
     Map<String, dynamic> toJson() => {
         "backdrop_path": backdropPath == null ? null : backdropPath,
-        "first_air_date": "${firstAirDate.year.toString().padLeft(4, '0')}-${firstAirDate.month.toString().padLeft(2, '0')}-${firstAirDate.day.toString().padLeft(2, '0')}",
-        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
+        "first_air_date": "${firstAirDate!.year.toString().padLeft(4, '0')}-${firstAirDate!.month.toString().padLeft(2, '0')}-${firstAirDate!.day.toString().padLeft(2, '0')}",
+        "genre_ids": List<dynamic>.from(genreIds!.map((x) => x)),
         "id": id,
         "name": name,
-        "origin_country": List<dynamic>.from(originCountry.map((x) => x)),
-        "original_language": originalLanguageValues.reverse[originalLanguage],
+        "origin_country": List<dynamic>.from(originCountry!.map((x) => x)),
+        "original_language": originalLanguageValues.reverse![originalLanguage!],
         "original_name": originalName,
         "overview": overview,
         "popularity": popularity,

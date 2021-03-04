@@ -3,15 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
-    Key key,
+    Key? key,
     this.onChanged,
     this.onSubmitted,
     this.trailing,
   }) : super(key: key);
 
-  final ValueSetter<String> onChanged;
-  final Widget trailing;
-  final ValueChanged<String> onSubmitted;
+  final ValueSetter<String>? onChanged;
+  final Widget? trailing;
+  final ValueChanged<String>? onSubmitted;
 
   @override
   Widget build(BuildContext context) {

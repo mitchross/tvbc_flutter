@@ -8,10 +8,10 @@ class ProductionCompany {
         this.originCountry,
     });
 
-    int id;
-    String logoPath;
-    String name;
-    String originCountry;
+    int? id;
+    String? logoPath;
+    String? name;
+    String? originCountry;
 
     factory ProductionCompany.fromJson(Map<String, dynamic> json) => ProductionCompany(
         id: json["id"],
@@ -34,8 +34,8 @@ class ProductionCountry {
         this.name,
     });
 
-    String iso31661;
-    String name;
+    String? iso31661;
+    String? name;
 
     factory ProductionCountry.fromJson(Map<String, dynamic> json) => ProductionCountry(
         iso31661: json["iso_3166_1"],

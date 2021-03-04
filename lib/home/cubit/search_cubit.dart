@@ -10,12 +10,12 @@ class SearchCubit extends Cubit<SearchState> {
 
   final TvbcRepository _tvbcRepository;
 
-  Future<void> getTVSearchResults({@required String searchTerm}) async {
+  Future<void> getTVSearchResults({required String searchTerm}) async {
     emit(SearchState.loading(searchTerm: searchTerm));
     try {
       //todo clean up
       final apiResults = await _tvbcRepository.searchTVShows(searchTerm);
-      final searchResults = apiResults.results
+      final searchResults = apiResults.results!
           .map((e) => SearchResult(e.posterPath, e.name, e.voteAverage))
           .toList();
       emit(SearchState.success(

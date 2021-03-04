@@ -43,31 +43,31 @@ class MovieDetails {
         this.voteCount,
     });
 
-    bool adult;
-    String backdropPath;
-    BelongsToCollection belongsToCollection;
-    int budget;
-    List<Genre> genres;
-    String homepage;
-    int id;
-    String imdbId;
-    String originalLanguage;
-    String originalTitle;
-    String overview;
-    double popularity;
-    String posterPath;
-    List<ProductionCompany> productionCompanies;
-    List<ProductionCountry> productionCountries;
-    DateTime releaseDate;
-    int revenue;
-    int runtime;
-    List<SpokenLanguage> spokenLanguages;
-    String status;
-    String tagline;
-    String title;
-    bool video;
-    double voteAverage;
-    int voteCount;
+    bool? adult;
+    String? backdropPath;
+    BelongsToCollection? belongsToCollection;
+    int? budget;
+    List<Genre>? genres;
+    String? homepage;
+    int? id;
+    String? imdbId;
+    String? originalLanguage;
+    String? originalTitle;
+    String? overview;
+    double? popularity;
+    String? posterPath;
+    List<ProductionCompany>? productionCompanies;
+    List<ProductionCountry>? productionCountries;
+    DateTime? releaseDate;
+    int? revenue;
+    int? runtime;
+    List<SpokenLanguage>? spokenLanguages;
+    String? status;
+    String? tagline;
+    String? title;
+    bool? video;
+    double? voteAverage;
+    int? voteCount;
 
     factory MovieDetails.fromJson(Map<String, dynamic> json) => MovieDetails(
         adult: json["adult"],
@@ -100,9 +100,9 @@ class MovieDetails {
     Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
-        "belongs_to_collection": belongsToCollection.toJson(),
+        "belongs_to_collection": belongsToCollection!.toJson(),
         "budget": budget,
-        "genres": List<dynamic>.from(genres.map((x) => x.toJson())),
+        "genres": List<dynamic>.from(genres!.map((x) => x.toJson())),
         "homepage": homepage,
         "id": id,
         "imdb_id": imdbId,
@@ -111,12 +111,12 @@ class MovieDetails {
         "overview": overview,
         "popularity": popularity,
         "poster_path": posterPath,
-        "production_companies": List<dynamic>.from(productionCompanies.map((x) => x.toJson())),
-        "production_countries": List<dynamic>.from(productionCountries.map((x) => x.toJson())),
-        "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+        "production_companies": List<dynamic>.from(productionCompanies!.map((x) => x.toJson())),
+        "production_countries": List<dynamic>.from(productionCountries!.map((x) => x.toJson())),
+        "release_date": "${releaseDate!.year.toString().padLeft(4, '0')}-${releaseDate!.month.toString().padLeft(2, '0')}-${releaseDate!.day.toString().padLeft(2, '0')}",
         "revenue": revenue,
         "runtime": runtime,
-        "spoken_languages": List<dynamic>.from(spokenLanguages.map((x) => x.toJson())),
+        "spoken_languages": List<dynamic>.from(spokenLanguages!.map((x) => x.toJson())),
         "status": status,
         "tagline": tagline,
         "title": title,
@@ -134,10 +134,10 @@ class BelongsToCollection {
         this.backdropPath,
     });
 
-    int id;
-    String name;
-    String posterPath;
-    String backdropPath;
+    int? id;
+    String? name;
+    String? posterPath;
+    String? backdropPath;
 
     factory BelongsToCollection.fromJson(Map<String, dynamic> json) => BelongsToCollection(
         id: json["id"],

@@ -6,8 +6,8 @@ import 'package:tvbc_repository/tvbc_repository.dart';
 
 class TelevisionBingeCalc extends StatelessWidget {
   const TelevisionBingeCalc({
-    Key key,
-    @required TvbcRepository tvbcRepository,
+    Key? key,
+    required TvbcRepository tvbcRepository,
   })  : assert(tvbcRepository != null),
         _tvbcRepository = tvbcRepository,
         super(key: key);
