@@ -36,7 +36,7 @@ class TvbcRepository {
   }
 
 
-    Future<TvShowDetails> getShowById(String id) async {
+    Future<TvShowDetails?> getShowById(String id) async {
     assert(id != null && id.isNotEmpty);
     try {
       final searchResults =

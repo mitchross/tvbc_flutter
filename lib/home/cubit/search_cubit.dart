@@ -6,7 +6,7 @@ import 'package:tvbc_repository/tvbc_repository.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit(this._tvbcRepository) : super(const SearchState.loading());
+  SearchCubit(this._tvbcRepository) : super(const SearchState.loading(searchTerm: "lost"));
 
   final TvbcRepository _tvbcRepository;
 
@@ -16,7 +16,7 @@ class SearchCubit extends Cubit<SearchState> {
       //todo clean up
       final apiResults = await _tvbcRepository.searchTVShows(searchTerm);
       final searchResults = apiResults.results!
-          .map((e) => SearchResult(e.posterPath, e.name, e.voteAverage))
+          .map((e) => SearchResult(e.posterPath, e.name, e.voteAverage, e.id.toString()))
           .toList();
       emit(SearchState.success(
           searchTerm: searchTerm, searchResults: searchResults));

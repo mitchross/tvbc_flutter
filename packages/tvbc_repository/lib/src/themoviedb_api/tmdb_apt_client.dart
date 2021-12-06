@@ -1,9 +1,6 @@
-
-
 import 'package:dio/dio.dart';
 
 import 'models/models.dart';
-
 
 class TmdbApiClient {
   static String base = "https://api.themoviedb.org/3";
@@ -11,9 +8,7 @@ class TmdbApiClient {
 
   Dio dio = Dio(BaseOptions(baseUrl: base));
 
-
   Future<TvSearchResults> getTvSearchResultByTerm(String searchTerm) async {
-  
     try {
       Response response = await dio.get(base + '/search/tv', queryParameters: {
         "api_key": API_KEY,
@@ -30,10 +25,11 @@ class TmdbApiClient {
     }
   }
 
-    Future<MovieSearchResults> getMovieSearchResultByTerm(String searchTerm) async {
-  
+  Future<MovieSearchResults> getMovieSearchResultByTerm(
+      String searchTerm) async {
     try {
-      Response response = await dio.get(base + '/search/movie', queryParameters: {
+      Response response =
+          await dio.get(base + '/search/movie', queryParameters: {
         "api_key": API_KEY,
         "language": "en-US",
         "page": 1,
@@ -46,12 +42,9 @@ class TmdbApiClient {
       //empty state?
       return MovieSearchResults();
     }
-
-
   }
 
-    Future<TvShowDetails> getTvShowById(String id) async {
-  
+  Future<TvShowDetails?> getTvShowById(String id) async {
     try {
       Response response = await dio.get(base + '/tv/' + id, queryParameters: {
         "api_key": API_KEY,
@@ -61,14 +54,14 @@ class TmdbApiClient {
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
       //empty state?
-      return TvShowDetails();
+      return null;
     }
   }
 
-      Future<MovieDetails> getMovieById(String id) async {
-  
+  Future<MovieDetails> getMovieById(String id) async {
     try {
-      Response response = await dio.get(base + '/movie/' + id, queryParameters: {
+      Response response =
+          await dio.get(base + '/movie/' + id, queryParameters: {
         "api_key": API_KEY,
         "language": "en-US",
       });
@@ -79,6 +72,4 @@ class TmdbApiClient {
       return MovieDetails();
     }
   }
-
-
 }

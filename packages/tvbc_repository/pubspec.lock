@@ -18,12 +18,10 @@ packages:
   dio:
     dependency: "direct main"
     description:
-      path: dio
-      ref: null-safety
-      resolved-ref: d3a208de4bf217663eaa3c83c33cf8d64daaaf56
-      url: "https://github.com/harsimranmaan/dio.git"
-    source: git
-    version: "3.0.10"
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.4"
   http_parser:
     dependency: transitive
     description:
