@@ -15,16 +15,43 @@ class DetailsView extends StatelessWidget {
       body: Center(
         child: BlocBuilder<ShowdetailsCubit, ShowdetailsState>(
           builder: (context, state) {
-           if( state is ShowdetailsLoaded)
-             
+            if (state is ShowdetailsLoaded)
               return Column(
+                //mainAxisAlignment: MainAxisAlignment.center, //Center Column contents vertically,
+                crossAxisAlignment: CrossAxisAlignment
+                    .center, //Center Column contents horizontally,
                 children: [
-                  Text(state.showdetails.genres[0].name),
-                  Text(state.showdetails.name ),
-                  Text(state.showdetails.firstAirDate),
-                  Text("rating: " + state.showdetails.voteAverage.toString() + " votes: " + state.showdetails.voteCount.toString()),
-                  Image.network((imageBaseUrl + state.showdetails.posterPath)),
-                
+                  Text(state.showdetails.name),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(state.showdetails.genres[0].name),
+                      SizedBox(width: 10),
+                      Text(state.showdetails.firstAirDate.substring(0, 4)),
+                    ],
+                  ),
+                  Text("rating: " +
+                      state.showdetails.voteAverage.toString() +
+                      " votes: " +
+                      state.showdetails.voteCount.toString()),
+                  Container(
+                      decoration: BoxDecoration(
+                          color: Colors.blueGrey,
+                          border: Border.all(
+                            color: Colors.red,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                              20) // use instead of BorderRadius.all(Radius.circular(20))
+                          ),
+                      child: Row(
+                        children: [
+                          Image.network(
+                            imageBaseUrl + state.showdetails.posterPath,
+                            height: 300,
+                            width: 300,
+                          ),
+                        ],
+                      )),
                 ],
               );
             else
