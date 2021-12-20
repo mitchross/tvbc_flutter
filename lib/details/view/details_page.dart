@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tvbc_flutter/details/cubit/showdetails_cubit.dart';
 import 'package:tvbc_flutter/details/view/details_view.dart';
+import 'package:tvbc_flutter/details/view/details_view2.dart';
 import 'package:tvbc_flutter/home/cubit/search_cubit.dart';
 import 'package:tvbc_repository/tvbc_repository.dart';
 
@@ -22,14 +23,14 @@ class DetailsPage extends StatelessWidget {
     return Scaffold(
       body:SafeArea(
       child: Padding
-      ( padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      ( padding: const EdgeInsets.symmetric(horizontal: 0),
         child: 
            
            BlocProvider(
                 create: (context) => ShowdetailsCubit(
                   context.read<TvbcRepository>()
                 )..getTvShowById(id: id),
-                child: DetailsView(),
+                child: DetailsView2(),
               ),
              
           

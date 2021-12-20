@@ -17,43 +17,67 @@ class DetailsView extends StatelessWidget {
           builder: (context, state) {
             if (state is ShowdetailsLoaded)
               return Column(
-                //mainAxisAlignment: MainAxisAlignment.center, //Center Column contents vertically,
-                crossAxisAlignment: CrossAxisAlignment
-                    .center, //Center Column contents horizontally,
-                children: [
-                  Text(state.showdetails.name),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(state.showdetails.genres[0].name),
-                      SizedBox(width: 10),
-                      Text(state.showdetails.firstAirDate.substring(0, 4)),
-                    ],
-                  ),
-                  Text("rating: " +
-                      state.showdetails.voteAverage.toString() +
-                      " votes: " +
-                      state.showdetails.voteCount.toString()),
-                  Container(
-                      decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                          border: Border.all(
-                            color: Colors.red,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              20) // use instead of BorderRadius.all(Radius.circular(20))
-                          ),
-                      child: Row(
-                        children: [
-                          Image.network(
+                  //mainAxisAlignment: MainAxisAlignment.center, //Center Column contents vertically,
+                  crossAxisAlignment: CrossAxisAlignment
+                      .center, //Center Column contents horizontally,
+                  children: [
+                    Text(state.showdetails.name),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(state.showdetails.genres[0].name),
+                        SizedBox(width: 10),
+                        Text(state.showdetails.firstAirDate.substring(0, 4)),
+                      ],
+                    ),
+                    Text("rating: " +
+                        state.showdetails.voteAverage.toString() +
+                        " votes: " +
+                        state.showdetails.voteCount.toString()),
+                    Card(
+                        child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          
+                          child: Image.network(
                             imageBaseUrl + state.showdetails.posterPath,
-                            height: 300,
-                            width: 300,
+                            height: 150,
+                            width: 100,
+                            
                           ),
-                        ],
-                      )),
-                ],
-              );
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                "Total Binge Time",
+                                style: TextStyle( fontSize: 20),
+                              ),
+                              Text(
+                                "7 days 3 hours 20 mins",
+                                style: TextStyle( fontSize: 20),
+                              ),
+                              Text(
+                                "Seasons: " +
+                                    state.showdetails.numberOfSeasons
+                                        .toString(),
+                                style: TextStyle( fontSize: 20),
+                              ),
+                              Text(
+                                "Episodes: " +
+                                    state.showdetails.numberOfEpisodes
+                                        .toString(),
+                                style: TextStyle( fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )),
+                  ]);
             else
               return Text('Loading');
           },

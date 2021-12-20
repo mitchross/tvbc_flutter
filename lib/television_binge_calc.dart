@@ -19,15 +19,7 @@ class TelevisionBingeCalc extends StatelessWidget {
     return RepositoryProvider.value(
       value: _tvbcRepository,
       child: MaterialApp(
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            brightness: Brightness.light,
-            color: Colors.transparent,
-            elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black87),
-          ),
-          textTheme: GoogleFonts.robotoTextTheme(),
-        ),
+       theme: ThemeData.dark(),
         home: HomePage(),
       ),
     );
