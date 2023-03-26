@@ -2,9 +2,7 @@
 //
 //     final tvShowDetailsDart = tvShowDetailsDartFromJson(jsonString);
 
-import 'dart:convert';
 
-import '../models.dart';
 
 // To parse this JSON data, do
 //

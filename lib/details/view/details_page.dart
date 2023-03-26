@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tvbc_flutter/details/cubit/showdetails_cubit.dart';
-import 'package:tvbc_flutter/details/view/details_view.dart';
 import 'package:tvbc_flutter/details/view/details_view2.dart';
-import 'package:tvbc_flutter/home/cubit/search_cubit.dart';
 import 'package:tvbc_repository/tvbc_repository.dart';
 
 class DetailsPage extends StatelessWidget {

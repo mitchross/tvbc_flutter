@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:tvbc_flutter/home/models/search_result.dart';
 import 'package:tvbc_repository/tvbc_repository.dart';
 part 'search_state.dart';

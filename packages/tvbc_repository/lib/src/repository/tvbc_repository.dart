@@ -14,7 +14,7 @@ class TvbcRepository {
   final TmdbApiClient _tmdbApiClient;
 
   Future<TvSearchResults> searchTVShows(String searchTerm) async {
-    assert(searchTerm != null && searchTerm.isNotEmpty);
+    assert(searchTerm.isNotEmpty);
     try {
       final searchResults =
           await _tmdbApiClient.getTvSearchResultByTerm(searchTerm);
@@ -25,7 +25,7 @@ class TvbcRepository {
   }
 
     Future<MovieSearchResults> searchMovies(String searchTerm) async {
-    assert(searchTerm != null && searchTerm.isNotEmpty);
+    assert(searchTerm.isNotEmpty);
     try {
       final searchResults =
           await _tmdbApiClient.getMovieSearchResultByTerm(searchTerm);
@@ -37,7 +37,7 @@ class TvbcRepository {
 
 
     Future<TvShowDetails?> getShowById(String id) async {
-    assert(id != null && id.isNotEmpty);
+    assert(id.isNotEmpty);
     try {
       final searchResults =
           await _tmdbApiClient.getTvShowById(id);
@@ -48,7 +48,7 @@ class TvbcRepository {
   }
 
       Future<MovieDetails> getMovieById(String id) async {
-    assert(id != null && id.isNotEmpty);
+    assert(id.isNotEmpty);
     try {
       final searchResults =
           await _tmdbApiClient.getMovieById(id);

@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:tvbc_flutter/home/models/search_result.dart';
 
 class SearchResultCard extends StatelessWidget {

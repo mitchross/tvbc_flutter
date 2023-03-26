@@ -81,7 +81,7 @@ class Result {
             : List<String>.from(json["origin_country"].map((x) => x)),
         originalLanguage: json["original_language"] == null
             ? null
-            : originalLanguageValues.map![json["original_language"]],
+            : originalLanguageValues.map[json["original_language"]],
         originalName:
             json["original_name"] == null ? null : json["original_name"],
         overview: json["overview"] == null ? null : json["overview"],
